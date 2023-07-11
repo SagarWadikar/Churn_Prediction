@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Churn Prediction</title>
+    <style>
+        body {
+            background-image: url("https://storage.googleapis.com/kaggle-datasets-images/2685819/4613317/a8608493434c3305114e6e832730c6e6/dataset-cover.jpg?t=2022-11-29-06-03-04");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .feature-container {
+            margin-bottom: 10px;
+        }
+
+        .feature-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Churn Prediction</h1>
+    <form action="/predict_churn" method="POST">
+        <div class="feature-container">
+            <label for="credit_score">Credit Score:</label>
+            <input type="number" id="credit_score" name="credit_score" required>
+        </div>
+
+        <div class="feature-container">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="" selected disabled>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div class="feature-container">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+
+        <div class="feature-container">
+            <label for="tenure">Tenure:</label>
+            <input type="number" id="tenure" name="tenure" required>
+        </div>
+
+        <div class="feature-container">
+            <label for="balance">Balance:</label>
+            <input type="number" id="balance" name="balance" required>
+        </div>
+
+        <div class="feature-container">
+            <label for="products_number">Number of Products:</label>
+            <select id="products_number" name="products_number" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+
+        <div class="feature-container">
+            <label for="credit_card">Number of Credit Cards:</label>
+            <select id="credit_card" name="credit_card" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+
+        <div class="feature-container">
+            <label for="active_member">Active Member:</label>
+            <select id="active_member" name="active_member" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+
+        <div class="feature-container">
+            <label for="estimated_salary">Estimated Salary:</label>
+            <input type="number" id="estimated_salary" name="estimated_salary" required>
+        </div>
+
+        <div class="feature-container">
+            <label for="country">Country:</label>
+            <select id="country" name="country" required>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Spain">Spain</option>
+            </select>
+        </div>
+
+        <button type="submit">Predict Churn</button>
+    </form>
+    {% if prediction is defined %}
+    {% if prediction == 0 %}
+        <h2 style="color: greenyellow;">Predicted Churn: Customer will not Churn</h2>
+    {% elif prediction == 1 %}
+        <h2 style="color: red;">Predicted Churn: Customer Will Churn</h2>
+    {% endif %}
+{% endif %}
+
+</body>
+</html>
+ 
