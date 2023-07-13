@@ -36,12 +36,10 @@ To run the code in this repository, the following requirements are needed:
 - scikit-learn==1.2.2
 - plotly==5.14.1
 - seaborn==0.12.2
-- Python 3.10.3
+- Python 3.11.4
 - Jupyter Notebook (for running the code)
 
-To install the required Python packages, run:
-pip install -r requirements.txt
-
+To install the required Python packages, run: pip install -r requirements.txt
 
 ## Usage
 
